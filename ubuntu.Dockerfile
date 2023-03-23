@@ -8,8 +8,12 @@ LABEL description="AboutA Docker image for automate Rider plugins building with 
 # Disable Prompt During Packages Installation
 ARG DEBIAN_FRONTEND=noninteractive
 
+# Install wget
+RUN apt update
+RUN apt-get install wget
+
 # Add Amazon Coretto repository
-RUN wget -O- https://apt.corretto.aws/corretto.key | sudo apt-key add - 
+RUN wget -O- https://apt.corretto.aws/corretto.key | apt-key add - 
 RUN add-apt-repository 'deb https://apt.corretto.aws stable main'
 
 # Update Ubuntu Software repository
