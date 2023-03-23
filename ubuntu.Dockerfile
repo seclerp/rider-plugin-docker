@@ -10,7 +10,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # Install wget
 RUN apt update
-RUN apt-get install wget
+RUN apt-get install -y wget
 
 # Add Amazon Coretto repository
 RUN wget -O- https://apt.corretto.aws/corretto.key | apt-key add - 
