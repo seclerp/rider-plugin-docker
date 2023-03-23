@@ -21,12 +21,13 @@ job("Build") {
     }
 }
 
-job("Deploy to Marketplace")
-container(image = "seclerp.rider-plugin-ubuntu:latest") {
-    kotlinScript { api ->
-        api.gradle("prepare")
-        api.gradle("publish")
-        // ...
+job("Deploy to Marketplace") {
+    container(image = "seclerp.rider-plugin-ubuntu:latest") {
+        kotlinScript { api ->
+            api.gradle("prepare")
+            api.gradle("publish")
+            // ...
+        }
     }
 }
 
