@@ -8,9 +8,10 @@ LABEL description="AboutA Docker image for automate Rider plugins building with 
 # Disable Prompt During Packages Installation
 ARG DEBIAN_FRONTEND=noninteractive
 
-# Install wget
+# Install dependencies
 RUN apt update
 RUN apt-get install -y wget
+RUN apt-get install -y gnupg2
 
 # Add Amazon Coretto repository
 RUN wget -O- https://apt.corretto.aws/corretto.key | apt-key add - 
@@ -20,7 +21,6 @@ RUN add-apt-repository 'deb https://apt.corretto.aws stable main'
 RUN apt update
 
 # Install JDK 17 (Amazon Coretto)
-RUN apt-get install -y gnupg2
 RUN apt-get install -y java-17-amazon-corretto-jdk
 
 # Install .NET 7
