@@ -13,7 +13,7 @@ A Docker image for building Rider plugins with all necessary batteries included
 
 ```kotlin
 job("Build") {
-    container(image = "me.seclerp.rider-plugin-ubuntu:latest") {
+    container(image = "seclerp.rider-plugin-ubuntu:latest") {
         kotlinScript { api ->
             api.gradle("prepare")
             api.gradle("buildPlugin")
@@ -22,7 +22,7 @@ job("Build") {
 }
 
 job("Deploy to Marketplace")
-container(image = "me.seclerp.rider-plugin-ubuntu:latest") {
+container(image = "seclerp.rider-plugin-ubuntu:latest") {
     kotlinScript { api ->
         api.gradle("prepare")
         api.gradle("publish")
@@ -36,13 +36,13 @@ container(image = "me.seclerp.rider-plugin-ubuntu:latest") {
 It's possible to use this image for building plugin inside child Dockerfile:
 
 ```dockerfile
-FROM me.seclerp.rider-plugin-ubuntu:latest AS build
+FROM seclerp.rider-plugin-ubuntu:latest AS build
 
 COPY . .
 RUN ./gradlew :prepare
 RUN ./gradlew :buildPlugin
 
-FROM me.seclerp.rider-plugin-ubuntu:latest AS deploy
+FROM seclerp.rider-plugin-ubuntu:latest AS deploy
 
 COPY . .
 RUN ./gradlew :prepare
