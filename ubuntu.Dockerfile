@@ -8,6 +8,8 @@ LABEL description="AboutA Docker image for automate Rider plugins building with 
 # Disable Prompt During Packages Installation
 ARG DEBIAN_FRONTEND=noninteractive
 
+SHELL ["/bin/bash", "-c"]
+
 # Install dependencies
 RUN apt update
 RUN apt-get install -y wget
