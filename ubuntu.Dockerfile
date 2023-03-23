@@ -20,6 +20,7 @@ RUN add-apt-repository 'deb https://apt.corretto.aws stable main'
 RUN apt update
 
 # Install JDK 17 (Amazon Coretto)
+RUN apt-get install -y gnupg2
 RUN apt-get install -y java-17-amazon-corretto-jdk
 
 # Install .NET 7
