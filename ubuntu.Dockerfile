@@ -9,7 +9,7 @@ LABEL description="AboutA Docker image for automate Rider plugins building with 
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Add Amazon Coretto repository
-wget -O- https://apt.corretto.aws/corretto.key | sudo apt-key add - 
+RUN wget -O- https://apt.corretto.aws/corretto.key | sudo apt-key add - 
 RUN add-apt-repository 'deb https://apt.corretto.aws stable main'
 
 # Update Ubuntu Software repository
