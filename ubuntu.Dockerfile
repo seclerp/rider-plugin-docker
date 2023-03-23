@@ -12,6 +12,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update
 RUN apt-get install -y wget
 RUN apt-get install -y gnupg2
+RUN apt-get install -y software-properties-common
 
 # Add Amazon Coretto repository
 RUN wget -O- https://apt.corretto.aws/corretto.key | apt-key add - 
