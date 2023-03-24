@@ -23,6 +23,10 @@ RUN apt update
 RUN apt-get install -y java-17-amazon-corretto-jdk
 
 # Install .NET 7
-RUN curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel 7.0 --version latest
-RUN echo 'export DOTNET_ROOT=/root/.dotnet' >> ~/.bashrc
-RUN echo 'export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools' >> ~/.bashrc
+RUN curl -sSL https://dot.net/v1/dotnet-install.sh  \
+    | bash /dev/stdin --channel 7.0 --version latest --install-dir /usr/share/dotnet \
+    && ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
+
+# Export env vars
+ENV DOTNET_ROOT="/usr/share/dotnet"
+ENV PATH="$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools"
