@@ -1,7 +1,7 @@
-# rider-plugin-docker
+# rider-plugin-docker :whale:
 
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/seclerp/rider-efcore/build.yml?logo=github&style=for-the-badge)
-![Docker Image Version (latest by date)](https://img.shields.io/docker/v/seclerp/rider-plugin-ubuntu?color=blue&label=image&logo=docker&sort=date&style=for-the-badge)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/seclerp/rider-efcore/build.yml?logo=github&style=for-the-badge)](https://github.com/seclerp/rider-plugin-docker/actions/workflows/build-image.yml)
+[![Docker Image Version (latest by date)](https://img.shields.io/docker/v/seclerp/rider-plugin-ubuntu?color=blue&label=image&logo=docker&sort=date&style=for-the-badge)](https://hub.docker.com/r/seclerp/rider-plugin-ubuntu)
 
 A Docker image for building Rider plugins with all necessary batteries included
 
