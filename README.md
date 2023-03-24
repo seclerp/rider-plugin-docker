@@ -4,7 +4,7 @@ A Docker image for building Rider plugins with all necessary batteries included
 ## What's inside:
 
 - OS: Ubuntu 22.10
-- .NET SDK: 7.0
+- .NET SDK: 7.0.202
 - JDK: Amazon Coretto 17
 
 ## How to use
