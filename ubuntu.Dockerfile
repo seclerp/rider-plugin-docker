@@ -28,5 +28,9 @@ RUN curl -sSL https://dot.net/v1/dotnet-install.sh  \
     && ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
 
 # Export env vars
-ENV DOTNET_ROOT="/usr/share/dotnet"
-ENV PATH="$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools"
+ENV \
+    DOTNET_ROOT="/usr/share/dotnet" \
+    PATH="$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools" \
+    DOTNET_NOLOGO=true
+
+RUN dotnet --info
