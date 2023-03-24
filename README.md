@@ -1,4 +1,8 @@
 # rider-plugin-docker
+
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/seclerp/rider-efcore/build.yml?logo=github&style=for-the-badge)
+![Docker Image Version (latest by date)](https://img.shields.io/docker/v/seclerp/rider-plugin-ubuntu?color=blue&label=image&logo=docker&sort=date&style=for-the-badge)
+
 A Docker image for building Rider plugins with all necessary batteries included
 
 ## What's inside:
@@ -15,8 +19,9 @@ A Docker image for building Rider plugins with all necessary batteries included
 job("Build") {
     container(image = "seclerp.rider-plugin-ubuntu:latest") {
         kotlinScript { api ->
-            api.gradle("prepare")
-            api.gradle("buildPlugin")
+            api.gradlew("prepare")
+            api.gradlew("testPlugin")
+            api.gradlew("buildPlugin")
         }
     }
 }
@@ -24,8 +29,7 @@ job("Build") {
 job("Deploy to Marketplace") {
     container(image = "seclerp.rider-plugin-ubuntu:latest") {
         kotlinScript { api ->
-            api.gradle("prepare")
-            api.gradle("publish")
+            api.gradlew("publish")
             // ...
         }
     }
